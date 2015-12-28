@@ -9,6 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "CountryListViewControllerCallback.h"
 
-@interface CountryListViewController : UIViewController<CountryListViewControllerCallback>
+@interface CountryListViewController : UIViewController<CountryListViewControllerCallback>{
+    
+    
+    __weak IBOutlet UILabel *lblSelectedCounrtyCount;
+    __weak IBOutlet UITableView *tableViewContryList;
+    
+}
 @property (nonatomic, strong) NSArray *contryListContents;
+
+
+
 @end

@@ -1,5 +1,5 @@
 //
-//  CountryListViewImplDelegate.h
+//  Constants.h
 //  SampleProject0001
 //
 //  Created by MacMini7 on 12/28/15.
@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
+#define NOS_MIN_SELECTION 3
+#define NOS_MAX_SELECTION 10
 
-@protocol CountryListViewImplDelegate <NSObject>
-- (void)loadListFromPlist;
-@end

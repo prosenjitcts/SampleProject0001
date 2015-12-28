@@ -16,4 +16,6 @@
 
 - (instancetype)initWithCountryListViewController:(id<CountryListViewControllerCallback>)countryListViewController;
 
+- (BOOL)isMinimumItemsSelected:(NSArray *)selectedArray;
+- (BOOL)isMaximumItemsSelected:(NSArray *)selectedArray;
 @end
