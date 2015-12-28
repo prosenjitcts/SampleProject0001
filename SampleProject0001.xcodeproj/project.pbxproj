@@ -10,7 +10,6 @@
 		7A90C9D41C3121C10094A9E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9D31C3121C10094A9E0 /* main.m */; };
 		7A90C9D71C3121C10094A9E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9D61C3121C10094A9E0 /* AppDelegate.m */; };
 		7A90C9DA1C3121C10094A9E0 /* SampleProject0001.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9D81C3121C10094A9E0 /* SampleProject0001.xcdatamodeld */; };
-		7A90C9DD1C3121C10094A9E0 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9DC1C3121C10094A9E0 /* ViewController.m */; };
 		7A90C9E01C3121C10094A9E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A90C9DE1C3121C10094A9E0 /* Main.storyboard */; };
 		7A90C9E21C3121C10094A9E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A90C9E11C3121C10094A9E0 /* Images.xcassets */; };
 		7A90C9E51C3121C10094A9E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A90C9E31C3121C10094A9E0 /* LaunchScreen.xib */; };
@@ -44,8 +43,6 @@
 		7A90C9D51C3121C10094A9E0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7A90C9D61C3121C10094A9E0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		7A90C9D91C3121C10094A9E0 /* SampleProject0001.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SampleProject0001.xcdatamodel; sourceTree = "<group>"; };
-		7A90C9DB1C3121C10094A9E0 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7A90C9DC1C3121C10094A9E0 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7A90C9DF1C3121C10094A9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7A90C9E11C3121C10094A9E0 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7A90C9E41C3121C10094A9E0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -105,14 +102,14 @@
 		7A90C9D01C3121C10094A9E0 /* SampleProject0001 */ = {
 			isa = PBXGroup;
 			children = (
+				7A90CA261C31498B0094A9E0 /* Model */,
+				7A90CA271C31498B0094A9E0 /* View */,
 				7A90CA181C313BB10094A9E0 /* Resource */,
 				7A90CA021C3134650094A9E0 /* Controller */,
 				7A90CA001C3133880094A9E0 /* Implementation */,
 				7A90CA011C3133880094A9E0 /* Presenter */,
 				7A90C9D51C3121C10094A9E0 /* AppDelegate.h */,
 				7A90C9D61C3121C10094A9E0 /* AppDelegate.m */,
-				7A90C9DB1C3121C10094A9E0 /* ViewController.h */,
-				7A90C9DC1C3121C10094A9E0 /* ViewController.m */,
 				7A90C9DE1C3121C10094A9E0 /* Main.storyboard */,
 				7A90C9E11C3121C10094A9E0 /* Images.xcassets */,
 				7A90C9E31C3121C10094A9E0 /* LaunchScreen.xib */,
@@ -202,6 +199,20 @@
 				7A90CA191C313BC00094A9E0 /* CountryList.plist */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		7A90CA261C31498B0094A9E0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		7A90CA271C31498B0094A9E0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -310,7 +321,6 @@
 				7A90CA151C3139650094A9E0 /* CountryListViewImpl.m in Sources */,
 				7A90C9D41C3121C10094A9E0 /* main.m in Sources */,
 				7A90CA211C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */,
-				7A90C9DD1C3121C10094A9E0 /* ViewController.m in Sources */,
 				7A90C9DA1C3121C10094A9E0 /* SampleProject0001.xcdatamodeld in Sources */,
 				7A90CA101C31385A0094A9E0 /* CountryListViewPresenter.m in Sources */,
 				7A90CA0A1C3134C90094A9E0 /* CountryListViewController.m in Sources */,

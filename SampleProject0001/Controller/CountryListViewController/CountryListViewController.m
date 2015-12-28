@@ -8,9 +8,10 @@
 
 #import "CountryListViewController.h"
 #import "CountryListViewPresenter.h"
-@interface CountryListViewController ()<CountryListViewControllerCallback>
+@interface CountryListViewController ()
+
 @property (nonatomic, strong) CountryListViewPresenter *countryListViewPresenter;
-@property (nonatomic, strong) NSArray *countryListcontents;
+
 @end
 
 @implementation CountryListViewController
@@ -44,9 +45,10 @@
 
 - (void)displayContent:(NSArray *)array {
     
-    
-    self.countryListcontents = array;
+    self.contryListContents = array;
 }
+
+
 /*
 #pragma mark - Navigation
 

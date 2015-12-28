@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CountryListViewControllerCallback.h"
 
-@interface CountryListViewController : UIViewController
-
+@interface CountryListViewController : UIViewController<CountryListViewControllerCallback>
+@property (nonatomic, strong) NSArray *contryListContents;
 @end

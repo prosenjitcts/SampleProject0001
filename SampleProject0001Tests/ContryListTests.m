@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
 
-#import "MockCountryListViewController.h"
+#import "CountryListViewController.h"
 #import "CountryListViewPresenter.h"
 #import "CountryListViewImpl.h"
 
@@ -46,7 +46,7 @@
 
 - (void)testCountryListCointains {
     
-    MockCountryListViewController * mockCountryListViewController = [[MockCountryListViewController alloc]init];
+    CountryListViewController * mockCountryListViewController = [[CountryListViewController alloc]init];
     
     id  <CountryListViewDelegate> countryListViewPresenter = [[CountryListViewPresenter alloc]initWithCountryListViewController:mockCountryListViewController];
     
