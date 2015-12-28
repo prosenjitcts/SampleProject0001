@@ -2,25 +2,125 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>India</string>
-	<string>United Kingdom</string>
-	<string>France</string>
-	<string>Canada</string>
-	<string>South Korea</string>
-	<string>Mexico</string>
-	<string>Russia</string>
-	<string>Australia</string>
-	<string>Germany</string>
-	<string>China</string>
-	<string>Turkey</string>
-	<string>United States</string>
-	<string>South Africa</string>
-	<string>Brazil</string>
-	<string>Indonesia</string>
-	<string>China</string>
-	<string>Indonesia</string>
-	<string>Japan</string>
-	<string>Italy</string>
-	<string>Spain</string>
+	<dict>
+		<key>kCountryID</key>
+		<integer>0</integer>
+		<key>kCountryName</key>
+		<string>India</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>1</integer>
+		<key>kCountryName</key>
+		<string>United Kingdom</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>2</integer>
+		<key>kCountryName</key>
+		<string>France</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>3</integer>
+		<key>kCountryName</key>
+		<string>South Korea</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>4</integer>
+		<key>kCountryName</key>
+		<string>Canada</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>5</integer>
+		<key>kCountryName</key>
+		<string>South Korea</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>6</integer>
+		<key>kCountryName</key>
+		<string>Mexico</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>7</integer>
+		<key>kCountryName</key>
+		<string>Russia</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>8</integer>
+		<key>kCountryName</key>
+		<string>Indonesia</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>9</integer>
+		<key>kCountryName</key>
+		<string>Australia</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>10</integer>
+		<key>kCountryName</key>
+		<string>Germany</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>11</integer>
+		<key>kCountryName</key>
+		<string>China</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>12</integer>
+		<key>kCountryName</key>
+		<string>Turkey</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>13</integer>
+		<key>kCountryName</key>
+		<string>United States</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>14</integer>
+		<key>kCountryName</key>
+		<string>South Africa</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>15</integer>
+		<key>kCountryName</key>
+		<string>Brazil</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>16</integer>
+		<key>kCountryName</key>
+		<string>Indonesia</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>17</integer>
+		<key>kCountryName</key>
+		<string>Brazil</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>18</integer>
+		<key>kCountryName</key>
+		<string>China</string>
+	</dict>
+	<dict>
+		<key>kCountryID</key>
+		<integer>19</integer>
+		<key>kCountryName</key>
+		<string>Japan</string>
+	</dict>
 </array>
 </plist>

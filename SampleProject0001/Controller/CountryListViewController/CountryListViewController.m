@@ -8,6 +8,7 @@
 
 #import "CountryListViewController.h"
 #import "CountryListViewPresenter.h"
+#import "Constants.h"
 @interface CountryListViewController () {
     UIBarButtonItem *rightBarButtonItem;
 }
@@ -24,7 +25,7 @@
     // Do any additional setup after loading the view.
     
     _seletedCountries = [NSMutableArray array];
-
+    
     self.countryListViewPresenter = [self countryListViewPresenter];
     [_countryListViewPresenter loadContent];
     
@@ -107,11 +108,18 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    NSString *countryName = [self.contryListContents objectAtIndex:indexPath.row];
+    NSDictionary *dictCountry = [self selectedRowDictForIndexPath:indexPath];
     
-    if(countryName.length)
-        [cell textLabel].text = countryName;
+    if(dictCountry) {
+        
+        NSString *countryName = [dictCountry objectForKey:KEY_COUNTRY_NAME];
+        
+        if(countryName.length)
+            [cell textLabel].text = countryName;
+    }
     
+    cell.accessoryType = [self isSelected:indexPath] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
@@ -122,10 +130,52 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     
+    if(!self.seletedCountries) return;
+    
+    BOOL isSelected = [self isSelected:indexPath];
+   
+    NSDictionary *dictCountry = [self selectedRowDictForIndexPath:indexPath];
+   
+    if(dictCountry) {
+      
+        if(!isSelected) {
+            
+            [self.seletedCountries addObject:dictCountry];
+       
+        } else if(self.seletedCountries.count>0){
+           
+            [self.seletedCountries removeObject:dictCountry];
+            
+        }
+    }
+    
+    [tableView reloadData];
     
 }
 
+#pragma mark -
+- (NSDictionary *)selectedRowDictForIndexPath:(NSIndexPath *)indexPath{
+    
+    if(indexPath.row >= self.contryListContents.count) return nil;
+    
+    NSDictionary *dictCountry = [self.contryListContents objectAtIndex:indexPath.row];
+    return dictCountry;
+    
+}
 
+- (BOOL)isSelected:(NSIndexPath *)indexPath {
+    
+    BOOL isSelected = NO;
+    NSDictionary *dictCountry = [self selectedRowDictForIndexPath:indexPath];
+    
+    if(dictCountry && self.seletedCountries.count) {
+        
+        isSelected = [self.seletedCountries containsObject:dictCountry];
+        
+    }
+    
+    return isSelected;
+}
 
 /*
  #pragma mark - Navigation

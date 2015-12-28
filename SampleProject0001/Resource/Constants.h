@@ -11,3 +11,5 @@
 #define NOS_MIN_SELECTION 3
 #define NOS_MAX_SELECTION 10
 
+#define KEY_COUNTRY_ID @"kCountryID"
+#define KEY_COUNTRY_NAME @"kCountryName"
