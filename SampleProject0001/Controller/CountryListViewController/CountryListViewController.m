@@ -23,10 +23,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    _seletedCountries = [NSMutableArray array];
+
     self.countryListViewPresenter = [self countryListViewPresenter];
     [_countryListViewPresenter loadContent];
     
-
+    [self addNavigationRightBarButton];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,10 +38,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - 
+#pragma mark -
 
 - (CountryListViewPresenter *)countryListViewPresenter {
-   
+    
     CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]initWithCountryListViewController:self];
     
     return countryListViewPresenter;
@@ -50,10 +54,10 @@
 - (void)addNavigationRightBarButton{
     UIBarButtonItem *btnSave = [[UIBarButtonItem alloc]
                                 initWithTitle:@"Next"
-                                style:UIBarButtonItemStyleDone
+                                style:UIBarButtonItemStylePlain
                                 target:self
                                 action:@selector(clickedNext:)];
-  
+    
     self.navigationItem.rightBarButtonItem = btnSave;
 }
 
@@ -62,7 +66,7 @@
     self.navigationItem.rightBarButtonItem.enabled = isEnabled;
 }
 
-#pragma mark Enent 
+#pragma mark Enent
 
 - (void)clickedNext:(id)sender {
     
@@ -71,33 +75,22 @@
 
 #pragma mark -
 
-- (NSMutableArray *)contryListContents {
-    
-    if(!_seletedCountries) {
-        
-        _seletedCountries = [NSMutableArray array];
-    }
-    return _seletedCountries;
-}
 
 - (void)setSeletedCountries:(NSMutableArray *)seletedCountries {
     
     _seletedCountries = seletedCountries;
     
-    
-    
 }
-
 
 
 #pragma mark -  <CountryListViewControllerCallback>
 
 - (void)displayContent:(NSArray *)array {
     
-    self.contryListContents = array;
+    self.contryListContents = [NSArray arrayWithArray:array];
     
     [tableViewContryList reloadData];
-
+    
 }
 
 #pragma mark - UITableView DataSource
@@ -107,7 +100,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"ListCell";
+    static NSString *CellIdentifier = @"cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     if (cell == nil) {
@@ -130,26 +123,18 @@
     
     
     
-
 }
 
 
-#pragma <#arguments#>
-#pragma mark -  Relesae Memory
-- (void)dealloc {
-    
-    _contryListContents = nil;
-    _seletedCountries = nil;
 
-}
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

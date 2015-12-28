@@ -45,6 +45,7 @@
     
 }
 
+#pragma mark - Selection Logic
 - (BOOL)isMinimumItemsSelected:(NSArray *)selectedArray {
     
     BOOL isSuccess = (selectedArray.count >= NOS_MIN_SELECTION);

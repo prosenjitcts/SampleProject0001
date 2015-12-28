@@ -57,7 +57,9 @@
     self.mockCountryLists = listArray;
     
 }
-- (NSArray *)mockSountryItems:(NSInteger)nosOfCountry {
+- (NSArray *)mockCountryItems:(NSInteger)nosOfCountry {
+    
+    if(nosOfCountry ==0 ) return nil;
     
     NSMutableArray *mockCountries =[NSMutableArray array];
     
@@ -95,12 +97,23 @@
     
 }
 
-
-- (void)testMiniumItemSelected_When2ItemsSeleced {
+#pragma mark Min Item Selected Test Cases
+- (void)testMinItemSelected_WhenNoItemsSeleced {
+    
+    CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
+    
+    NSArray *mockSountryItems = [self mockCountryItems:0];
+    
+    BOOL isFailed =   [countryListViewPresenter isMinimumItemsSelected:mockSountryItems];
+    
+    XCTAssertFalse(isFailed);
+    
+}
+- (void)testMinItemSelected_When2ItemsSeleced {
    
    CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
     
-    NSArray *mockSountryItems = [self mockSountryItems:2];
+    NSArray *mockSountryItems = [self mockCountryItems:2];
     
   BOOL isFailed =   [countryListViewPresenter isMinimumItemsSelected:mockSountryItems];
    
@@ -112,24 +125,72 @@
     
     CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
     
-    NSArray *mockSountryItems = [self mockSountryItems:3];
+    NSArray *mockSountryItems = [self mockCountryItems:3];
     
-    BOOL isSuccess =   [countryListViewPresenter isMinimumItemsSelected:mockSountryItems];
+    BOOL isSucced =   [countryListViewPresenter isMinimumItemsSelected:mockSountryItems];
     
-    XCTAssertTrue(isSuccess);
+    XCTAssertTrue(isSucced);
     
 }
 - (void)testMiniumItemSelected_WhenMorethan3ItemsSeleced {
     
     CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
     
-    NSArray *mockSountryItems = [self mockSountryItems:4];
+    NSArray *mockSountryItems = [self mockCountryItems:4];
     
-    BOOL isSuccess =   [countryListViewPresenter isMinimumItemsSelected:mockSountryItems];
+    BOOL isSucced =   [countryListViewPresenter isMinimumItemsSelected:mockSountryItems];
     
-    XCTAssertTrue(isSuccess);
+    XCTAssertTrue(isSucced);
     
 }
 
+
+
+#pragma mark Max Item Selected Test Cases
+- (void)testMaxItemSelected_WhenNoItemsSeleced {
+    
+    CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
+    
+    NSArray *mockSountryItems = [self mockCountryItems:0];
+    
+    BOOL isFailed =   [countryListViewPresenter isMaximumItemsSelected:mockSountryItems];
+    
+    XCTAssertFalse(isFailed);
+    
+}
+- (void)testMaxItemSelected_When2ItemsSeleced {
+    
+    CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
+    
+    NSArray *mockSountryItems = [self mockCountryItems:2];
+    
+    BOOL isFailed =   [countryListViewPresenter isMaximumItemsSelected:mockSountryItems];
+    
+    XCTAssertFalse(isFailed);
+    
+}
+
+- (void)testMaxiumItemSelected_When3ItemsSeleced {
+    
+    CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
+    
+    NSArray *mockSountryItems = [self mockCountryItems:10];
+    
+    BOOL isSucced =   [countryListViewPresenter isMaximumItemsSelected:mockSountryItems];
+    
+    XCTAssertTrue(isSucced);
+    
+}
+- (void)testMaxiumItemSelected_WhenMorethan3ItemsSeleced {
+    
+    CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
+    
+    NSArray *mockSountryItems = [self mockCountryItems:15];
+    
+    BOOL isSucced =   [countryListViewPresenter isMaximumItemsSelected:mockSountryItems];
+    
+    XCTAssertTrue(isSucced);
+    
+}
 
 @end
