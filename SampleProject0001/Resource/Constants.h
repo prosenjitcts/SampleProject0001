@@ -18,3 +18,5 @@ typedef NS_ENUM(NSUInteger, SelectionOperationType) {
 
 #define KEY_COUNTRY_ID @"kCountryID"
 #define KEY_COUNTRY_NAME @"kCountryName"
+
+#define KEY_SB_ID_SCLController @"SelectedCountryListController"

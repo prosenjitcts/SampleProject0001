@@ -16,7 +16,6 @@
     
     if(self = [super init])
     {
-        
         _countryListViewPresenter = countryListPresenter;
         
     }

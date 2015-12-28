@@ -24,6 +24,8 @@
 		7A90CA211C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA201C3141BA0094A9E0 /* MockCountryListViewController.m */; };
 		7A90CA221C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA201C3141BA0094A9E0 /* MockCountryListViewController.m */; };
 		7A90CA251C3142750094A9E0 /* ContryListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA231C3142750094A9E0 /* ContryListTests.m */; };
+		7A90CA2C1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA2B1C3187AC0094A9E0 /* SelectedCountryListController.m */; };
+		7A90CA2D1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA2B1C3187AC0094A9E0 /* SelectedCountryListController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		7A90CA201C3141BA0094A9E0 /* MockCountryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockCountryListViewController.m; sourceTree = "<group>"; };
 		7A90CA231C3142750094A9E0 /* ContryListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContryListTests.m; sourceTree = "<group>"; };
 		7A90CA281C3157460094A9E0 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		7A90CA2A1C3187AC0094A9E0 /* SelectedCountryListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCountryListController.h; sourceTree = "<group>"; };
+		7A90CA2B1C3187AC0094A9E0 /* SelectedCountryListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCountryListController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +173,7 @@
 		7A90CA021C3134650094A9E0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7A90CA291C3187880094A9E0 /* SelectedCountryListController */,
 				7A90CA071C3134C90094A9E0 /* CountryListViewController */,
 			);
 			path = Controller;
@@ -215,6 +220,15 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7A90CA291C3187880094A9E0 /* SelectedCountryListController */ = {
+			isa = PBXGroup;
+			children = (
+				7A90CA2A1C3187AC0094A9E0 /* SelectedCountryListController.h */,
+				7A90CA2B1C3187AC0094A9E0 /* SelectedCountryListController.m */,
+			);
+			path = SelectedCountryListController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +340,7 @@
 				7A90C9DA1C3121C10094A9E0 /* SampleProject0001.xcdatamodeld in Sources */,
 				7A90CA101C31385A0094A9E0 /* CountryListViewPresenter.m in Sources */,
 				7A90CA0A1C3134C90094A9E0 /* CountryListViewController.m in Sources */,
+				7A90CA2C1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A90CA161C3139650094A9E0 /* CountryListViewImpl.m in Sources */,
+				7A90CA2D1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */,
 				7A90CA221C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */,
 				7A90CA111C31385A0094A9E0 /* CountryListViewPresenter.m in Sources */,
 				7A90CA251C3142750094A9E0 /* ContryListTests.m in Sources */,

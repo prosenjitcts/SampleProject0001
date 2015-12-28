@@ -9,6 +9,8 @@
 #import "CountryListViewController.h"
 #import "CountryListViewPresenter.h"
 #import "Constants.h"
+#import "SelectedCountryListController.h"
+
 @interface CountryListViewController () {
     UIBarButtonItem *rightBarButtonItem;
 }
@@ -25,7 +27,6 @@
     // Do any additional setup after loading the view.
     
     _seletedCountries = [NSMutableArray array];
-    
     self.countryListViewPresenter = [self countryListViewPresenter];
     [_countryListViewPresenter loadContent];
     [self addNavigationRightBarButton];
@@ -73,6 +74,11 @@
 - (void)clickedNext:(id)sender {
     
     
+    SelectedCountryListController *selectedCountryListController = [self.storyboard instantiateViewControllerWithIdentifier:KEY_SB_ID_SCLController];
+
+    selectedCountryListController.selectedCountryListContents = self.seletedCountries;
+    [self.navigationController pushViewController:selectedCountryListController animated:YES];
+    
 }
 
 #pragma mark -
@@ -89,7 +95,7 @@
 
 - (void)displayContent:(NSArray *)array {
     
-    self.CountryListContents = [NSArray arrayWithArray:array];
+    self.countryListContents = [NSArray arrayWithArray:array];
     
     [tableViewCountryList reloadData];
     
@@ -133,7 +139,6 @@
     
 }
 
-
 - (void)stateOfNextButton:(BOOL)isEnable {
     
     [self isEnableNavRightBarButton:isEnable];
@@ -149,7 +154,7 @@
 #pragma mark - UITableView DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.CountryListContents  count];
+    return [self.countryListContents  count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -194,9 +199,9 @@
 
 - (NSDictionary *)selectedRowDictForIndexPath:(NSIndexPath *)indexPath {
     
-    if(indexPath.row >= self.CountryListContents.count) return nil;
+    if(indexPath.row >= self.countryListContents.count) return nil;
     
-    NSDictionary *dictCountry = [self.CountryListContents objectAtIndex:indexPath.row];
+    NSDictionary *dictCountry = [self.countryListContents objectAtIndex:indexPath.row];
     return dictCountry;
     
 }

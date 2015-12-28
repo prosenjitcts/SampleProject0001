@@ -137,7 +137,7 @@
     }
 }
 
-- (void)updateNextButtonState:(NSArray *)selectedCountry {
+- (BOOL)updateNextButtonState:(NSArray *)selectedCountry {
     
     BOOL isEnable = [self isMinimumItemsSelected:selectedCountry];
     
@@ -149,6 +149,7 @@
     
     }
 
+    return isEnable;
 }
 
 - (void)updateCountryCountLabel:(NSArray *)selectedCountries {

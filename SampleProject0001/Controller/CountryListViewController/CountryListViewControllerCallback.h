@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "Constants.h"
 @protocol CountryListViewControllerCallback <NSObject>
+
+@optional
 - (void)displayContent:(NSArray *)array;
 - (void)willSelectionProcessed:(BOOL )willProcessed;
 

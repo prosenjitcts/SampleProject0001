@@ -16,7 +16,7 @@
     __weak IBOutlet UITableView *tableViewCountryList;
     
 }
-@property (nonatomic, strong) NSArray *CountryListContents;
+@property (nonatomic, strong) NSArray *countryListContents;
 
 
 @end
