@@ -11,5 +11,4 @@
 @protocol CountryListViewDelegate <NSObject>
 - (void)loadContent;
 - (void)displaycontent:(NSArray *)array;
-
 @end

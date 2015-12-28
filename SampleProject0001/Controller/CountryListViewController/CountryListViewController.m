@@ -28,8 +28,9 @@
     
     self.countryListViewPresenter = [self countryListViewPresenter];
     [_countryListViewPresenter loadContent];
-    
     [self addNavigationRightBarButton];
+    [_countryListViewPresenter updateCountryCountLabel:self.seletedCountries ];
+    [_countryListViewPresenter updateNextButtonState:self.seletedCountries ];
     
     
 }
@@ -88,16 +89,67 @@
 
 - (void)displayContent:(NSArray *)array {
     
-    self.contryListContents = [NSArray arrayWithArray:array];
+    self.CountryListContents = [NSArray arrayWithArray:array];
     
-    [tableViewContryList reloadData];
+    [tableViewCountryList reloadData];
+    
+}
+- (void)willSelectionProcessed:(BOOL )willProcessed
+{
+    
+}
+
+- (void)didSelectAtIndexPath:(NSIndexPath *)indexPath
+         selectedCountryDict:( NSDictionary *)selectedCountryDict withSelectionOperationType:(SelectionOperationType)selectionOperationType {
+    
+    if(!self.seletedCountries) return;
+    
+    switch (selectionOperationType) {
+            
+        case OperationTypeNoAction:
+            
+            break;
+        case OperationTypeAdd:
+            
+            [self.seletedCountries addObject:selectedCountryDict];
+            
+            break;
+        case OperationTypeRemove:
+            
+            [self.seletedCountries removeObject:selectedCountryDict];
+            
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+    [_countryListViewPresenter updateNextButtonState:self.seletedCountries ];
+    [_countryListViewPresenter updateCountryCountLabel:self.seletedCountries ];
+    
+    [tableViewCountryList reloadData];
+    
+    
+}
+
+
+- (void)stateOfNextButton:(BOOL)isEnable {
+    
+    [self isEnableNavRightBarButton:isEnable];
+    
+}
+- (void)updateSelectedCountryCountLabelText:(NSString *)selectedCountryCountLabelText
+{
+    
+    lblSelectedCounrtyCount.text = selectedCountryCountLabelText;
     
 }
 
 #pragma mark - UITableView DataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.contryListContents  count];
+    return [self.CountryListContents  count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -117,8 +169,9 @@
         if(countryName.length)
             [cell textLabel].text = countryName;
     }
+    BOOL isSelected = [_countryListViewPresenter isSelected:indexPath selectedDictionary:dictCountry selectedCountries:self.seletedCountries];//[self isSelected:indexPath];
     
-    cell.accessoryType = [self isSelected:indexPath] ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
+    cell.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -132,50 +185,37 @@
     
     if(!self.seletedCountries) return;
     
-    BOOL isSelected = [self isSelected:indexPath];
-   
     NSDictionary *dictCountry = [self selectedRowDictForIndexPath:indexPath];
-   
-    if(dictCountry) {
-      
-        if(!isSelected) {
-            
-            [self.seletedCountries addObject:dictCountry];
-       
-        } else if(self.seletedCountries.count>0){
-           
-            [self.seletedCountries removeObject:dictCountry];
-            
-        }
-    }
-    
-    [tableView reloadData];
+    [_countryListViewPresenter didSelectAtIndexPath:indexPath selectedDictionary:dictCountry selectedCountries:self.seletedCountries];
     
 }
 
 #pragma mark -
-- (NSDictionary *)selectedRowDictForIndexPath:(NSIndexPath *)indexPath{
+
+- (NSDictionary *)selectedRowDictForIndexPath:(NSIndexPath *)indexPath {
     
-    if(indexPath.row >= self.contryListContents.count) return nil;
+    if(indexPath.row >= self.CountryListContents.count) return nil;
     
-    NSDictionary *dictCountry = [self.contryListContents objectAtIndex:indexPath.row];
+    NSDictionary *dictCountry = [self.CountryListContents objectAtIndex:indexPath.row];
     return dictCountry;
     
 }
 
-- (BOOL)isSelected:(NSIndexPath *)indexPath {
-    
-    BOOL isSelected = NO;
-    NSDictionary *dictCountry = [self selectedRowDictForIndexPath:indexPath];
-    
-    if(dictCountry && self.seletedCountries.count) {
-        
-        isSelected = [self.seletedCountries containsObject:dictCountry];
-        
-    }
-    
-    return isSelected;
-}
+//- (BOOL)isSelected:(NSIndexPath *)indexPath {
+//
+//    BOOL isSelected = NO;
+//    NSDictionary *dictCountry = [self selectedRowDictForIndexPath:indexPath];
+//
+//    if(dictCountry && self.seletedCountries.count) {
+//
+//        isSelected = [self.seletedCountries containsObject:dictCountry];
+//
+//    }
+//
+//    return isSelected;
+//}
+
+
 
 /*
  #pragma mark - Navigation

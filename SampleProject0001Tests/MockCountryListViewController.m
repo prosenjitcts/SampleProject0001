@@ -11,7 +11,7 @@
 @implementation MockCountryListViewController
 -(void)displayContent:(NSArray *)array
 {
-    self.contryListContents = array;
+    self.CountryListContents = array;
 }
 
 @end

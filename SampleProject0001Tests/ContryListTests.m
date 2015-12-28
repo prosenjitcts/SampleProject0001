@@ -1,5 +1,5 @@
 //
-//  ContryListTests.m
+//  CountryListTests.m
 //  SampleProject0001
 //
 //  Created by MacMini7 on 12/28/15.
@@ -13,13 +13,13 @@
 #import "CountryListViewPresenter.h"
 #import "CountryListViewImpl.h"
 
-@interface ContryListTests : XCTestCase
+@interface CountryListTests : XCTestCase
 
 @property(nonatomic,strong) NSArray *mockCountryLists;
 
 @end
 
-@implementation ContryListTests
+@implementation CountryListTests
 
 - (void)setUp {
     [super setUp];
@@ -65,8 +65,8 @@
     
     for (int i= 0;self.mockCountryLists.count  && i < self.mockCountryLists.count && i<nosOfCountry; i++) {
         
-        NSString *contryName = [self.mockCountryLists objectAtIndex:i];
-        [mockCountries addObject:contryName];
+        NSString *countryName = [self.mockCountryLists objectAtIndex:i];
+        [mockCountries addObject:countryName];
     }
     return mockCountries;
 }
@@ -81,7 +81,7 @@
     
     [countryListViewPresenter loadContent];
     
-    NSInteger nosOfCountries = mockCountryListViewController.contryListContents.count;
+    NSInteger nosOfCountries = mockCountryListViewController.CountryListContents.count;
     
     XCTAssertTrue(nosOfCountries);
     
@@ -91,7 +91,7 @@
     
     CountryListViewController * mockCountryListViewController = [[CountryListViewController alloc]init];
     
-    NSInteger nosOfCountries = mockCountryListViewController.contryListContents.count;
+    NSInteger nosOfCountries = mockCountryListViewController.CountryListContents.count;
     
     XCTAssertFalse(nosOfCountries);
     

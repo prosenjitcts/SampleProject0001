@@ -13,11 +13,10 @@
     
     
     __weak IBOutlet UILabel *lblSelectedCounrtyCount;
-    __weak IBOutlet UITableView *tableViewContryList;
+    __weak IBOutlet UITableView *tableViewCountryList;
     
 }
-@property (nonatomic, strong) NSArray *contryListContents;
-
+@property (nonatomic, strong) NSArray *CountryListContents;
 
 
 @end

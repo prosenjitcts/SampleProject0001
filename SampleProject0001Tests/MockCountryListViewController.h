@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CountryListViewControllerCallback.h"
 @interface MockCountryListViewController : NSObject<CountryListViewControllerCallback>
-@property (nonatomic, strong) NSArray *contryListContents;
+@property (nonatomic, strong) NSArray *CountryListContents;
 
 @end

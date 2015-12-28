@@ -7,6 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+typedef NS_ENUM(NSUInteger, SelectionOperationType) {
+    OperationTypeNoAction = 1,
+    OperationTypeAdd ,
+    OperationTypeRemove,
+};
 
 #define NOS_MIN_SELECTION 3
 #define NOS_MAX_SELECTION 10

@@ -7,7 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Constants.h"
 @protocol CountryListViewControllerCallback <NSObject>
 - (void)displayContent:(NSArray *)array;
+- (void)willSelectionProcessed:(BOOL )willProcessed;
+
+- (void)didSelectAtIndexPath:(NSIndexPath *)indexPath selectedCountryDict:( NSDictionary *)selectedCountryDict withSelectionOperationType:(SelectionOperationType)selectionOperationType;
+
+- (void)stateOfNextButton:(BOOL)isEnable ;
+- (void)updateSelectedCountryCountLabelText:(NSString *)selectedCountryCountLabelText ;
+
 @end

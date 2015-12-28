@@ -44,11 +44,128 @@
     }
     
 }
+- (BOOL)willSelectionProcessed:(NSArray *)seletedCountries {
+    
+    BOOL isProcessed = NO;
+    
+    
+    isProcessed = (seletedCountries &&
+                   ![self isMaximumItemsSelected:seletedCountries] );
+    
+    
+    if(_countryListViewController
+       && [_countryListViewController respondsToSelector:@selector(willSelectionProcessed:)]) {
+        
+        [_countryListViewController willSelectionProcessed:isProcessed];
+    }
+    
+    return isProcessed;
+}
+
+
+- (BOOL)isSelected:(NSIndexPath *)indexPath selectedDictionary:(NSDictionary *)dictCountry selectedCountries:(NSArray *)seletedCountries
+{
+    
+    BOOL isSelected = NO;
+    
+    if(dictCountry && seletedCountries.count) {
+        
+        isSelected = [seletedCountries containsObject:dictCountry];
+        
+    }
+    
+    return isSelected;
+}
+
+- (void)didSelectAtIndexPath:(NSIndexPath *)indexPath selectedDictionary:(NSDictionary *)dictCountry selectedCountries:(NSArray *)seletedCountries
+{
+    
+    if(!dictCountry || !seletedCountries || !indexPath)
+    {
+        if(_countryListViewController
+           && [_countryListViewController respondsToSelector:@selector(didSelectAtIndexPath:selectedCountryDict:withSelectionOperationType:)] )
+        {
+            
+            [_countryListViewController didSelectAtIndexPath:indexPath selectedCountryDict:dictCountry withSelectionOperationType:OperationTypeNoAction];
+        }
+        
+        return;
+    }
+    
+    
+    BOOL isSelected = NO;
+    
+    if(dictCountry && seletedCountries.count) {
+        isSelected = [seletedCountries containsObject:dictCountry];
+        
+    }
+    BOOL isSelectionProced = [self willSelectionProcessed:seletedCountries];
+    
+    if(dictCountry && seletedCountries && indexPath )
+    {
+        if(!isSelected && isSelectionProced)
+        {
+            if(_countryListViewController
+               && [_countryListViewController respondsToSelector:@selector(didSelectAtIndexPath:selectedCountryDict:withSelectionOperationType:)] )
+            {
+                
+                [_countryListViewController didSelectAtIndexPath:indexPath selectedCountryDict:dictCountry withSelectionOperationType:OperationTypeAdd];
+            }
+        }
+        
+        else if(isSelected && seletedCountries.count>0 )
+        {
+            if(isSelectionProced)
+            {
+                if(_countryListViewController
+                   && [_countryListViewController respondsToSelector:@selector(didSelectAtIndexPath:selectedCountryDict:withSelectionOperationType:)] )
+                {
+                    
+                    [_countryListViewController didSelectAtIndexPath:indexPath selectedCountryDict:dictCountry withSelectionOperationType:OperationTypeRemove];
+                }
+            }
+            else
+            {
+                if(_countryListViewController
+                   && [_countryListViewController respondsToSelector:@selector(didSelectAtIndexPath:selectedCountryDict:withSelectionOperationType:)] )
+                {
+                    
+                    [_countryListViewController didSelectAtIndexPath:indexPath selectedCountryDict:dictCountry withSelectionOperationType:OperationTypeRemove];
+                }
+            }
+        }
+    }
+}
+
+- (void)updateNextButtonState:(NSArray *)selectedCountry {
+    
+    BOOL isEnable = [self isMinimumItemsSelected:selectedCountry];
+    
+    if(_countryListViewController
+       && [_countryListViewController respondsToSelector:@selector(stateOfNextButton:)] )
+    {
+    
+        [_countryListViewController stateOfNextButton:isEnable];
+    
+    }
+
+}
+
+- (void)updateCountryCountLabel:(NSArray *)selectedCountries {
+    
+    NSString *text = (selectedCountries && selectedCountries.count) ? [NSString stringWithFormat:@"Selected Country(%ld)",selectedCountries.count]:@"No Country Selected";
+    
+    if(_countryListViewController && [_countryListViewController respondsToSelector:@selector(updateSelectedCountryCountLabelText:)]) {
+        
+        [_countryListViewController updateSelectedCountryCountLabelText:text];
+    }
+}
+
 
 #pragma mark - Selection Logic
 - (BOOL)isMinimumItemsSelected:(NSArray *)selectedArray {
     
-    BOOL isSuccess = (selectedArray.count >= NOS_MIN_SELECTION);
+    BOOL isSuccess = (selectedArray && selectedArray.count >= NOS_MIN_SELECTION);
     
     return isSuccess;
     
@@ -56,7 +173,7 @@
 
 - (BOOL)isMaximumItemsSelected:(NSArray *)selectedArray {
     
-    BOOL isSuccess = (selectedArray.count >= NOS_MAX_SELECTION);
+    BOOL isSuccess = (selectedArray && selectedArray.count >= NOS_MAX_SELECTION);
     
     return isSuccess;
     
