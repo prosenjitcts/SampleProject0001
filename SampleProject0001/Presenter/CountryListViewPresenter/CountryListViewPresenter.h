@@ -28,7 +28,7 @@
 
 - (BOOL)updateNextButtonState:(NSArray *)selectedCountry ;
 
-- (void)updateCountryCountLabel:(NSArray *)selectedCountries;
+- (NSString *)updateCountryCountLabel:(NSArray *)selectedCountries;
 
 - (NSDictionary *)selectedRowDictForIndexPath:(NSIndexPath *)indexPath fromCountries:(NSArray *)countries;
         

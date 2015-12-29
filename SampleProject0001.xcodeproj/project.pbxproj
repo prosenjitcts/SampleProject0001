@@ -10,22 +10,20 @@
 		7A5613D81C35097D0023C31E /* SelectedCountryListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5613D71C35097D0023C31E /* SelectedCountryListPresenter.m */; };
 		7A5613DF1C35097D0023C31E /* NSArray+SortedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5613DE1C35097D0023C31E /* NSArray+SortedArray.m */; };
 		7A5613E01C35097D0023C31E /* NSArray+SortedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5613DE1C35097D0023C31E /* NSArray+SortedArray.m */; };
+		7A5613E31C35097D0023C31E /* CountryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5613E21C35097D0023C31E /* CountryListViewController.m */; };
+		7A5613E41C35097D0023C31E /* CountryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5613E21C35097D0023C31E /* CountryListViewController.m */; };
 		7A90C9D41C3121C10094A9E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9D31C3121C10094A9E0 /* main.m */; };
 		7A90C9D71C3121C10094A9E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9D61C3121C10094A9E0 /* AppDelegate.m */; };
 		7A90C9DA1C3121C10094A9E0 /* SampleProject0001.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9D81C3121C10094A9E0 /* SampleProject0001.xcdatamodeld */; };
 		7A90C9E01C3121C10094A9E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A90C9DE1C3121C10094A9E0 /* Main.storyboard */; };
 		7A90C9E21C3121C10094A9E0 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A90C9E11C3121C10094A9E0 /* Images.xcassets */; };
 		7A90C9E51C3121C10094A9E0 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A90C9E31C3121C10094A9E0 /* LaunchScreen.xib */; };
-		7A90CA0A1C3134C90094A9E0 /* CountryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA091C3134C90094A9E0 /* CountryListViewController.m */; };
-		7A90CA0B1C3134C90094A9E0 /* CountryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA091C3134C90094A9E0 /* CountryListViewController.m */; };
 		7A90CA101C31385A0094A9E0 /* CountryListViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA0F1C31385A0094A9E0 /* CountryListViewPresenter.m */; };
 		7A90CA111C31385A0094A9E0 /* CountryListViewPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA0F1C31385A0094A9E0 /* CountryListViewPresenter.m */; };
 		7A90CA151C3139650094A9E0 /* CountryListViewImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA141C3139650094A9E0 /* CountryListViewImpl.m */; };
 		7A90CA161C3139650094A9E0 /* CountryListViewImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA141C3139650094A9E0 /* CountryListViewImpl.m */; };
 		7A90CA1A1C313BC00094A9E0 /* CountryList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A90CA191C313BC00094A9E0 /* CountryList.plist */; };
 		7A90CA1B1C313BC00094A9E0 /* CountryList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A90CA191C313BC00094A9E0 /* CountryList.plist */; };
-		7A90CA211C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA201C3141BA0094A9E0 /* MockCountryListViewController.m */; };
-		7A90CA221C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA201C3141BA0094A9E0 /* MockCountryListViewController.m */; };
 		7A90CA251C3142750094A9E0 /* ContryListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA231C3142750094A9E0 /* ContryListTests.m */; };
 		7A90CA2C1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA2B1C3187AC0094A9E0 /* SelectedCountryListController.m */; };
 		7A90CA2D1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90CA2B1C3187AC0094A9E0 /* SelectedCountryListController.m */; };
@@ -48,6 +46,7 @@
 		7A5613DD1C35097D0023C31E /* NSArray+SortedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SortedArray.h"; sourceTree = "<group>"; };
 		7A5613DE1C35097D0023C31E /* NSArray+SortedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SortedArray.m"; sourceTree = "<group>"; };
 		7A5613E11C35097D0023C31E /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		7A5613E21C35097D0023C31E /* CountryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryListViewController.m; sourceTree = "<group>"; };
 		7A90C9CE1C3121C10094A9E0 /* SampleProject0001.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject0001.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A90C9D21C3121C10094A9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A90C9D31C3121C10094A9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -60,7 +59,6 @@
 		7A90C9EA1C3121C10094A9E0 /* SampleProject0001Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SampleProject0001Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A90C9EF1C3121C10094A9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A90CA081C3134C90094A9E0 /* CountryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryListViewController.h; sourceTree = "<group>"; };
-		7A90CA091C3134C90094A9E0 /* CountryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryListViewController.m; sourceTree = "<group>"; };
 		7A90CA0C1C3134F00094A9E0 /* CountryListViewControllerCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryListViewControllerCallback.h; sourceTree = "<group>"; };
 		7A90CA0E1C31385A0094A9E0 /* CountryListViewPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryListViewPresenter.h; sourceTree = "<group>"; };
 		7A90CA0F1C31385A0094A9E0 /* CountryListViewPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryListViewPresenter.m; sourceTree = "<group>"; };
@@ -69,8 +67,6 @@
 		7A90CA141C3139650094A9E0 /* CountryListViewImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountryListViewImpl.m; sourceTree = "<group>"; };
 		7A90CA171C3139980094A9E0 /* CountryListViewImplDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountryListViewImplDelegate.h; sourceTree = "<group>"; };
 		7A90CA191C313BC00094A9E0 /* CountryList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = CountryList.plist; sourceTree = "<group>"; };
-		7A90CA1F1C3141BA0094A9E0 /* MockCountryListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MockCountryListViewController.h; sourceTree = "<group>"; };
-		7A90CA201C3141BA0094A9E0 /* MockCountryListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MockCountryListViewController.m; sourceTree = "<group>"; };
 		7A90CA231C3142750094A9E0 /* ContryListTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContryListTests.m; sourceTree = "<group>"; };
 		7A90CA2A1C3187AC0094A9E0 /* SelectedCountryListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCountryListController.h; sourceTree = "<group>"; };
 		7A90CA2B1C3187AC0094A9E0 /* SelectedCountryListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCountryListController.m; sourceTree = "<group>"; };
@@ -180,8 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				7A90C9EE1C3121C10094A9E0 /* Supporting Files */,
-				7A90CA1F1C3141BA0094A9E0 /* MockCountryListViewController.h */,
-				7A90CA201C3141BA0094A9E0 /* MockCountryListViewController.m */,
 				7A90CA231C3142750094A9E0 /* ContryListTests.m */,
 			);
 			path = SampleProject0001Tests;
@@ -228,7 +222,7 @@
 			children = (
 				7A90CA0C1C3134F00094A9E0 /* CountryListViewControllerCallback.h */,
 				7A90CA081C3134C90094A9E0 /* CountryListViewController.h */,
-				7A90CA091C3134C90094A9E0 /* CountryListViewController.m */,
+				7A5613E21C35097D0023C31E /* CountryListViewController.m */,
 			);
 			path = CountryListViewController;
 			sourceTree = "<group>";
@@ -380,13 +374,12 @@
 			files = (
 				7A5613D81C35097D0023C31E /* SelectedCountryListPresenter.m in Sources */,
 				7A90C9D71C3121C10094A9E0 /* AppDelegate.m in Sources */,
+				7A5613E31C35097D0023C31E /* CountryListViewController.m in Sources */,
 				7A90CA151C3139650094A9E0 /* CountryListViewImpl.m in Sources */,
 				7A90C9D41C3121C10094A9E0 /* main.m in Sources */,
-				7A90CA211C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */,
 				7A90C9DA1C3121C10094A9E0 /* SampleProject0001.xcdatamodeld in Sources */,
 				7A90CA101C31385A0094A9E0 /* CountryListViewPresenter.m in Sources */,
 				7A5613DF1C35097D0023C31E /* NSArray+SortedArray.m in Sources */,
-				7A90CA0A1C3134C90094A9E0 /* CountryListViewController.m in Sources */,
 				7A90CA2C1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,10 +391,9 @@
 				7A90CA161C3139650094A9E0 /* CountryListViewImpl.m in Sources */,
 				7A5613E01C35097D0023C31E /* NSArray+SortedArray.m in Sources */,
 				7A90CA2D1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */,
-				7A90CA221C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */,
 				7A90CA111C31385A0094A9E0 /* CountryListViewPresenter.m in Sources */,
 				7A90CA251C3142750094A9E0 /* ContryListTests.m in Sources */,
-				7A90CA0B1C3134C90094A9E0 /* CountryListViewController.m in Sources */,
+				7A5613E41C35097D0023C31E /* CountryListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

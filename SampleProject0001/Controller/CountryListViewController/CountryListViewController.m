@@ -76,7 +76,7 @@
     
     SelectedCountryListController *selectedCountryListController = [self.storyboard instantiateViewControllerWithIdentifier:KEY_SB_ID_SCLController];
 
-    selectedCountryListController.selectedCountryListContents = self.seletedCountries;
+    selectedCountryListController.selectedCountryListContents = _seletedCountries;
     [self.navigationController pushViewController:selectedCountryListController animated:YES];
     
 }
@@ -91,14 +91,10 @@
 
 #pragma mark -  <CountryListViewControllerCallback>
 
-- (void)displayContent:(NSArray *)array {
+- (void)displayContent:(NSArray *)contents {
   
-    self.countryListContents = [array ascendingSortedCountryByName];
+    self.countryListContents = [contents ascendingSortedCountryByName];
     [tableViewCountryList reloadData];
-    
-}
-- (void)willSelectionProcessed:(BOOL )willProcessed
-{
     
 }
 
@@ -214,5 +210,9 @@
  // Pass the selected object to the new view controller.
  }
  */
-
+- (void)dealloc {
+    
+    _seletedCountries = nil;
+    _countryListViewPresenter = nil;
+}
 @end

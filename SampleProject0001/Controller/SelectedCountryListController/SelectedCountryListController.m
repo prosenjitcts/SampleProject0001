@@ -48,10 +48,10 @@
 
 #pragma mark - Setter Method
 -(void)setSelectedCountryListContents:(NSArray *)selectedCountryListContents{
-   
+    
     _selectedCountryListContents = selectedCountryListContents;
-  
-    [self.selectedCountryListPresenter loadContain:_selectedCountryListContents];
+    self.navigationItem.title = TEXT_WHEN_COUNTRY_SELECTED(_selectedCountryListContents.count);
+self.navigationController.navigationBar.topItem.title = @"Back";    [self.selectedCountryListPresenter loadContain:_selectedCountryListContents];
     
 }
 

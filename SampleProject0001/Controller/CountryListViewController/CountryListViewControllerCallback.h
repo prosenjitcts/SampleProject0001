@@ -10,13 +10,12 @@
 #import "Constants.h"
 @protocol CountryListViewControllerCallback <NSObject>
 
-@optional
-- (void)displayContent:(NSArray *)array;
-- (void)willSelectionProcessed:(BOOL )willProcessed;
-
-- (void)didSelectAtIndexPath:(NSIndexPath *)indexPath selectedCountryDict:( NSDictionary *)selectedCountryDict withSelectionOperationType:(SelectionOperationType)selectionOperationType;
-
+- (void)displayContent:(NSArray *)contents;
 - (void)stateOfNextButton:(BOOL)isEnable ;
 - (void)updateSelectedCountryCountLabelText:(NSString *)selectedCountryCountLabelText ;
+
+@optional
+- (void)willSelectionProcessed:(BOOL )willProcessed;
+- (void)didSelectAtIndexPath:(NSIndexPath *)indexPath selectedCountryDict:( NSDictionary *)selectedCountryDict withSelectionOperationType:(SelectionOperationType)selectionOperationType;
 
 @end

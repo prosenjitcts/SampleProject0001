@@ -25,3 +25,6 @@ typedef NS_ENUM(NSUInteger, SelectionOperationType) {
 
 #define KEY_SB_ID_SCLController @"SelectedCountryListController"
 
+#define TEXT_WHEN_NO_COUNTRY_SELECTED @"No Country Selected"
+
+#define TEXT_WHEN_COUNTRY_SELECTED(n) (n == 1 ? [NSString stringWithFormat:@"Selected Country (%ld)",n]: [NSString stringWithFormat: @"Selected Countries (%ld)",n])
