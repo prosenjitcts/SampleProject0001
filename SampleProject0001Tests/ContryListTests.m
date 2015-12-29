@@ -107,20 +107,19 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
     CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
     
     NSArray *mockSountryItems = [self mockCountryItems:items];
-    
+    BOOL expectedResult =   [countryListViewPresenter isMinimumItemsSelected:mockSountryItems];
+
     switch (testCaseType) {
         case TestCaseTypeFalse:
         {
-            BOOL isfailed =   [countryListViewPresenter isMinimumItemsSelected:mockSountryItems];
             
-            XCTAssertFalse(isfailed);
+            XCTAssertFalse(expectedResult);
         }
             break;
         case TestCaseTypeTrue:
         {
-            BOOL isSucced =   [countryListViewPresenter isMinimumItemsSelected:mockSountryItems];
             
-            XCTAssertTrue(isSucced);
+            XCTAssertTrue(expectedResult);
         }
             break;
             
@@ -164,20 +163,19 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
     CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
     
     NSArray *mockSountryItems = [self mockCountryItems:items];
-    
+  
+    BOOL expectedResult =   [countryListViewPresenter isMaximumItemsSelected:mockSountryItems];
+
     switch (testCaseType) {
         case TestCaseTypeFalse:
         {
-            BOOL isfailed =   [countryListViewPresenter isMaximumItemsSelected:mockSountryItems];
-            
-            XCTAssertFalse(isfailed);
+            XCTAssertFalse(expectedResult);
         }
             break;
         case TestCaseTypeTrue:
         {
-            BOOL isSucced =   [countryListViewPresenter isMaximumItemsSelected:mockSountryItems];
             
-            XCTAssertTrue(isSucced);
+            XCTAssertTrue(expectedResult);
         }
             break;
             
@@ -215,6 +213,34 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
 }
 
 #pragma mark -  Test WillSelection Processed
+- (void)willSelectionProcessedTestCasesForItems:(NSInteger)items testCaseType:(TestCaseType)testCaseType {
+    CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
+    
+    NSArray *mockSountryItems = [self mockCountryItems:items];
+    
+    BOOL expectedResult =   [countryListViewPresenter willSelectionProcessed:mockSountryItems];
+    
+    switch (testCaseType) {
+        case TestCaseTypeFalse:
+        {
+            
+            XCTAssertFalse(expectedResult);
+        }
+            break;
+        case TestCaseTypeTrue:
+        {
+            
+            XCTAssertTrue(expectedResult);
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+}
+
 
 -(void)testWillSelectionProcessed_WhenNoItemsSeleced
 {
@@ -243,38 +269,33 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
     
 }
 
-- (void)willSelectionProcessedTestCasesForItems:(NSInteger)items testCaseType:(TestCaseType)testCaseType {
+
+
+
+#pragma mark -  Update Next Button State
+- (void)updateNextButtonStateTestCasesForItems:(NSInteger)items testCaseType:(TestCaseType)testCaseType {
     CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
     
     NSArray *mockSountryItems = [self mockCountryItems:items];
     
+    BOOL expectedResult =   [countryListViewPresenter updateNextButtonState:mockSountryItems];
+    
     switch (testCaseType) {
         case TestCaseTypeFalse:
         {
-            BOOL isfailed =   [countryListViewPresenter willSelectionProcessed:mockSountryItems];
-            
-            XCTAssertFalse(isfailed);
+            XCTAssertFalse(expectedResult);
         }
             break;
         case TestCaseTypeTrue:
         {
-            BOOL isSucced =   [countryListViewPresenter willSelectionProcessed:mockSountryItems];
-            
-            XCTAssertTrue(isSucced);
+            XCTAssertTrue(expectedResult);
         }
             break;
             
         default:
             break;
     }
-   
-    
 }
-
-
-
-#pragma mark -  Update Next Button State
-
 -(void)testUpdateNextButtonState_WhenNoItemsSeleced
 {
     [self updateNextButtonStateTestCasesForItems:0 testCaseType:TestCaseTypeFalse];
@@ -298,33 +319,6 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
 -(void)testUpdateNextButtonState_WhenMoreThan3ItemsSeleced
 {
     [self updateNextButtonStateTestCasesForItems:4 testCaseType:TestCaseTypeTrue];
-    
-    
-}
-- (void)updateNextButtonStateTestCasesForItems:(NSInteger)items testCaseType:(TestCaseType)testCaseType {
-    CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
-    
-    NSArray *mockSountryItems = [self mockCountryItems:items];
-    
-    switch (testCaseType) {
-        case TestCaseTypeFalse:
-        {
-            BOOL isfailed =   [countryListViewPresenter updateNextButtonState:mockSountryItems];
-            
-            XCTAssertFalse(isfailed);
-        }
-            break;
-        case TestCaseTypeTrue:
-        {
-            BOOL isSucced =   [countryListViewPresenter updateNextButtonState:mockSountryItems];
-            
-            XCTAssertTrue(isSucced);
-        }
-            break;
-            
-        default:
-            break;
-    }
     
     
 }
