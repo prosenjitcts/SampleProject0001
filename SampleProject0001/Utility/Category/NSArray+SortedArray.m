@@ -16,7 +16,7 @@
 - (NSArray *)sortedArrayWithKey:(NSString *)key ascending:(BOOL)ascending{
     
     NSSortDescriptor *sorter = [[NSSortDescriptor alloc]
-                                initWithKey:KEY_COUNTRY_NAME
+                                initWithKey:key
                                 ascending:ascending
                                 selector:@selector(localizedCaseInsensitiveCompare:)];
     NSArray *sortDescriptors = [NSArray arrayWithObject: sorter];

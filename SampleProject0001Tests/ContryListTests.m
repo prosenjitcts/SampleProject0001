@@ -477,7 +477,9 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
     
     NSDictionary *selectedDictionary = [countryListViewPresenter selectedRowDictForIndexPath:indexPath fromCountries:self.mockCountryLists];
     
-    BOOL expectedResult =  [countryListViewPresenter isSelected:indexPath selectedDictionary:selectedDictionary selectedCountries:selectedCountryList];
+    BOOL expectedResult =  [countryListViewPresenter isSelected:indexPath
+                                             selectedDictionary:selectedDictionary
+                                              selectedCountries:selectedCountryList];
     
     switch (testCaseType) {
         case TestCaseTypeFalse:

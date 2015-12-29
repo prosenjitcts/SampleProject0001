@@ -154,12 +154,16 @@
 
 - (void)updateCountryCountLabel:(NSArray *)selectedCountries {
     
-    NSString *text = (selectedCountries && selectedCountries.count) ? [NSString stringWithFormat:@"Selected Country(%ld)",selectedCountries.count]:@"No Country Selected";
+    NSString *text = (selectedCountries && selectedCountries.count) ?
+  
+    (selectedCountries.count==1 ? [NSString stringWithFormat:@"Selected Country (%ld)",selectedCountries.count]
+     : [NSString stringWithFormat: @"Selected Countries (%ld)",selectedCountries.count] ) : @"No Country Selected";
     
     if(_countryListViewController && [_countryListViewController respondsToSelector:@selector(updateSelectedCountryCountLabelText:)]) {
         
         [_countryListViewController updateSelectedCountryCountLabelText:text];
     }
+    
 }
 
 - (NSDictionary *)selectedRowDictForIndexPath:(NSIndexPath *)indexPath fromCountries:(NSArray *)countries{

@@ -171,7 +171,10 @@
         if(countryName.length)
             [cell textLabel].text = countryName;
     }
-    BOOL isSelected = [_countryListViewPresenter isSelected:indexPath selectedDictionary:dictCountry selectedCountries:self.seletedCountries];//[self isSelected:indexPath];
+    BOOL isSelected = [_countryListViewPresenter isSelected:indexPath
+                                         selectedDictionary:dictCountry
+                                          selectedCountries:self.seletedCountries];
+    
     
     cell.accessoryType = isSelected ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -196,7 +199,8 @@
 
 - (NSDictionary *)selectedRowDictForIndexPath:(NSIndexPath *)indexPath {
     
-  return  [_countryListViewPresenter selectedRowDictForIndexPath:indexPath fromCountries:self.countryListContents];
+  return  [_countryListViewPresenter selectedRowDictForIndexPath:indexPath
+                                                   fromCountries:self.countryListContents];
     
 }
 
