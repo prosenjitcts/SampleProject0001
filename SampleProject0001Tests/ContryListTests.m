@@ -12,6 +12,7 @@
 #import "CountryListViewController.h"
 #import "CountryListViewPresenter.h"
 #import "CountryListViewImpl.h"
+
 typedef NS_ENUM(NSUInteger, TestCaseType) {
     TestCaseTypeFalse = 1,
     TestCaseTypeTrue ,
@@ -545,68 +546,68 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
     
 }
 
-#pragma mark - 
+#pragma mark - Country count text
 
 - (void)testNoCountrySelected_T {
     
-    NSString *expectedText = TEXT_WHEN_NO_COUNTRY_SELECTED;
-    [self selectedCountryDisplatTextTesting:expectedText selectedCountries:nil testCaseType:TestCaseTypeTrue];
+    NSString *experimentText = TEXT_WHEN_NO_COUNTRY_SELECTED;
+    [self selectedCountryDisplatTextTesting:experimentText selectedCountries:nil testCaseType:TestCaseTypeTrue];
 }
 
 - (void)testNoCountrySelected_F {
     
-    NSString *expectedText = TEXT_WHEN_NO_COUNTRY_SELECTED;
-    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@ ",expectedText] selectedCountries:nil testCaseType:TestCaseTypeFalse];
+    NSString *experimentText = TEXT_WHEN_NO_COUNTRY_SELECTED;
+    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@ ",experimentText] selectedCountries:nil testCaseType:TestCaseTypeFalse];
 }
 
 - (void)testNoOneCountrySelected_T{
     
-    NSString *expectedText = TEXT_WHEN_COUNTRY_SELECTED((long)1);
-    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@",expectedText] selectedCountries:@[@"India"] testCaseType:TestCaseTypeTrue];
+    NSString *experimentText = @"Selected Country (1)";
+    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@",experimentText] selectedCountries:@[@"India"] testCaseType:TestCaseTypeTrue];
 }
 
 
 - (void)testNoOneCountrySelected_F{
     
-    NSString *expectedText = TEXT_WHEN_COUNTRY_SELECTED((long)1);
+    NSString *experimentText = @" Selected Country (1) ";
     //Space added
-    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@" %@ ",expectedText] selectedCountries:@[@"India"] testCaseType:TestCaseTypeFalse];
+    [self selectedCountryDisplatTextTesting:experimentText selectedCountries:@[@"India"] testCaseType:TestCaseTypeFalse];
 }
 
 - (void)testNoMoreThanOneCountrySelected_T{
     
     
-    NSString *expectedText = TEXT_WHEN_COUNTRY_SELECTED((long)2);
+    NSString *experimentText =  @"Selected Countries (2)";
     
-    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@",expectedText] selectedCountries:@[@"India",@"China"] testCaseType:TestCaseTypeTrue];
+    [self selectedCountryDisplatTextTesting:experimentText selectedCountries:@[@"India",@"China"] testCaseType:TestCaseTypeTrue];
     
     
 }
 - (void)testNoMoreThanOneCountrySelected_F{
     
     
-    NSString *expectedText = TEXT_WHEN_COUNTRY_SELECTED((long)2);
+    NSString *experimentText =  @"Selected Countries (2) ";
     
     //Space added
-    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@ ",expectedText] selectedCountries:@[@"India",@"China"] testCaseType:TestCaseTypeFalse];
+    [self selectedCountryDisplatTextTesting:experimentText selectedCountries:@[@"India",@"China"] testCaseType:TestCaseTypeFalse];
     
     
 }
 - (void)testNoMoreThanOneCountrySelected_MisMatch{
     
     
-    NSString *expectedText = TEXT_WHEN_COUNTRY_SELECTED((long)4);
+    NSString *experimentText =  @"Selected Countries (4)";
     
-    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@",expectedText] selectedCountries:@[@"India",@"China"] testCaseType:TestCaseTypeFalse];
+    [self selectedCountryDisplatTextTesting:experimentText selectedCountries:@[@"India",@"China"] testCaseType:TestCaseTypeFalse];
     
     
 }
 - (void)testNoMoreThanOneCountrySelected_MisMatch_1{
     
     
-    NSString *expectedText = TEXT_WHEN_COUNTRY_SELECTED((long)2);
+    NSString *experimentText = @"Selected Countries (2)";
     
-    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@",expectedText] selectedCountries:@[@"India",@"China",@"South Korea",@"Mexico"] testCaseType:TestCaseTypeFalse];
+    [self selectedCountryDisplatTextTesting:experimentText selectedCountries:@[@"India",@"China",@"South Korea",@"Mexico"] testCaseType:TestCaseTypeFalse];
     
     
 }
@@ -615,9 +616,9 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
 - (void)testNoMoreThanOneCountrySelected_3{
     
     
-    NSString *expectedText = TEXT_WHEN_COUNTRY_SELECTED((long)4);
+    NSString *experimentText =  @"Selected Countries (4)";
     
-    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@",expectedText] selectedCountries:@[@"India",@"China"] testCaseType:TestCaseTypeFalse];
+    [self selectedCountryDisplatTextTesting:[NSString stringWithFormat:@"%@",experimentText] selectedCountries:@[@"India",@"China"] testCaseType:TestCaseTypeFalse];
     
 }
 
