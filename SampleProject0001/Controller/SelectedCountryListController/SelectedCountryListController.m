@@ -8,13 +8,18 @@
 
 #import "SelectedCountryListController.h"
 #import "Constants.h"
+#import "SelectedCountryListPresenter.h"
+
+@interface SelectedCountryListController ()
+
+@property(nonatomic,strong) SelectedCountryListPresenter *selectedCountryListPresenter;
+@end
+
 @implementation SelectedCountryListController
-#pragma mark - UITableView DataSource
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     
     
 }
@@ -24,13 +29,33 @@
     // Dispose of any resources that can be recreated.
 }
 
-
--(void)setSelectedCountryListContents:(NSArray *)selectedCountryListContents{
-    _selectedCountryListContents = selectedCountryListContents;
-    [selectedCountryTableView reloadData];
-
+#pragma mark - SelectedCountryListPresenter
+- (SelectedCountryListPresenter*)selectedCountryListPresenter {
+    
+    if(!_selectedCountryListPresenter) {
+        _selectedCountryListPresenter = [[SelectedCountryListPresenter alloc]initWithSelectedCountryListController:self];
+    }
+    
+    return _selectedCountryListPresenter;
 }
 
+#pragma mark - Call Back  <SelectedCountryListControllerCallBack>
+- (void)displayContent:(NSArray *)array {
+    
+    [selectedCountryTableView reloadData];
+    
+}
+
+#pragma mark - Setter Method
+-(void)setSelectedCountryListContents:(NSArray *)selectedCountryListContents{
+   
+    _selectedCountryListContents = selectedCountryListContents;
+  
+    [self.selectedCountryListPresenter loadContain:_selectedCountryListContents];
+    
+}
+
+#pragma mark -  Table View Data Source <UITableViewDataSource>
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.selectedCountryListContents  count];
 }
@@ -68,5 +93,6 @@
 -(void)dealloc {
     
     _selectedCountryListContents = nil;
+    _selectedCountryListPresenter = nil;
 }
 @end

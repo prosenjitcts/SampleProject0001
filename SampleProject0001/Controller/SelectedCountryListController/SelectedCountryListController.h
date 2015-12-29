@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SelectedCountryListController : UIViewController
+#import "SelectedCountryListControllerCallBack.h"
+@interface SelectedCountryListController : UIViewController<SelectedCountryListControllerCallBack>
 {
     
     __weak IBOutlet UITableView *selectedCountryTableView;

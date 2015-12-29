@@ -189,4 +189,8 @@
     return isSuccess;
     
 }
+
+- (void)dealloc{
+    _countryListViewImpl = nil;
+}
 @end

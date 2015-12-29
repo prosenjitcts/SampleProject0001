@@ -12,7 +12,7 @@
 
 @interface CountryListViewPresenter : NSObject<CountryListViewDelegate>
 
-@property(nonatomic, strong) id<CountryListViewControllerCallback> countryListViewController;
+@property(nonatomic, weak) id<CountryListViewControllerCallback> countryListViewController;
 
 - (instancetype)initWithCountryListViewController:(id<CountryListViewControllerCallback>)countryListViewController;
 

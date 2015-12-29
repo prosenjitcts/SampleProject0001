@@ -12,7 +12,7 @@
 
 @interface CountryListViewImpl : NSObject
 
-@property (nonatomic,strong) id <CountryListViewDelegate> countryListViewPresenter;
+@property (nonatomic,weak) id <CountryListViewDelegate> countryListViewPresenter;
 
 - (instancetype)initWithCountryListViewPresenter:(id<CountryListViewDelegate>)countryListPresenter;
 
