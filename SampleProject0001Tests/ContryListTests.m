@@ -459,12 +459,90 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
                                         testCaseType:TestCaseTypeNotEqualObject];
 }
 
+#pragma mark - Is Selected Row
+
+- (void)isSelectedTestCasesForTappedIndexPath:(NSIndexPath *)indexPath
+                            seletedCountriesCountryID:(NSArray *)seletedCountriesCountryID
+                                 testCaseType:(TestCaseType)testCaseType
+{
+    CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
+    NSArray *selectedCountryList =  nil;
+    
+    if(seletedCountriesCountryID.count)
+    {
+        
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"kCountryID IN %@",seletedCountriesCountryID];
+        selectedCountryList = [self.mockCountryLists filteredArrayUsingPredicate:predicate];
+    }
+    
+    NSDictionary *selectedDictionary = [countryListViewPresenter selectedRowDictForIndexPath:indexPath fromCountries:self.mockCountryLists];
+    
+    BOOL expectedResult =  [countryListViewPresenter isSelected:indexPath selectedDictionary:selectedDictionary selectedCountries:selectedCountryList];
+    
+    switch (testCaseType) {
+        case TestCaseTypeFalse:
+        {
+            XCTAssertFalse(expectedResult);
+        }
+            break;
+        case TestCaseTypeTrue:
+        {
+            XCTAssertTrue(expectedResult);
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+- (void )testIsSelectedRow_FirstTime{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    [expectedMockDict setObject:@(indexPath.row) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"India" forKey:KEY_COUNTRY_NAME];
+    
+    [self isSelectedTestCasesForTappedIndexPath:indexPath
+                              seletedCountriesCountryID:nil testCaseType:TestCaseTypeFalse];
+    
+}
+
+- (void )testIsSelectedRow_WhenAlreadySelected{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    [expectedMockDict setObject:@(indexPath.row) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"India" forKey:KEY_COUNTRY_NAME];
+    
+    [self isSelectedTestCasesForTappedIndexPath:indexPath
+                              seletedCountriesCountryID:@[@(indexPath.row)] testCaseType:TestCaseTypeTrue];
+    
+}
+
+- (void )testIsSelectedRow_WhenNewRowSelected{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    [expectedMockDict setObject:@(0) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"India" forKey:KEY_COUNTRY_NAME];
+    
+    [self isSelectedTestCasesForTappedIndexPath:indexPath
+                              seletedCountriesCountryID:@[@(0),@(10),@(12)] testCaseType:TestCaseTypeFalse];
+    
+}
+- (void )testIsSelectedRow_WhenOverFlowSelection{
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:21 inSection:0];
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    [expectedMockDict setObject:@(0) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"India" forKey:KEY_COUNTRY_NAME];
+    
+    [self isSelectedTestCasesForTappedIndexPath:indexPath
+                              seletedCountriesCountryID:@[@(0),@(10),@(12)] testCaseType:TestCaseTypeFalse];
+    
+}
 
 
 
-//-------------------------
-//-------------------------
-//- (BOOL)isSelected:(NSIndexPath *)indexPath selectedDictionary:(NSDictionary *)dictCountry selectedCountries:(NSArray *)seletedCountries;
-//commit
-//- (void)updateCountryCountLabel:(NSArray *)selectedCountries;
 @end
