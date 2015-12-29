@@ -15,7 +15,10 @@
 typedef NS_ENUM(NSUInteger, TestCaseType) {
     TestCaseTypeFalse = 1,
     TestCaseTypeTrue ,
-    TestCaseTypeNil,
+    TestCaseTypeNilObject,
+    TestCaseTypeEqualObject,
+    TestCaseTypeNotEqualObject,
+
 };
 @interface CountryListTests : XCTestCase
 
@@ -55,11 +58,13 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
 
 - (void)countryFromPlist {
     
-    self.mockCountryLists = [NSArray array];
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"CountryList" ofType:@"plist"];
-    NSMutableArray *listArray = [NSMutableArray arrayWithContentsOfFile:plistPath];
-    self.mockCountryLists = listArray;
-    
+    if(!self.mockCountryLists) {
+        self.mockCountryLists = [NSArray array];
+        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"CountryList" ofType:@"plist"];
+        NSMutableArray *listArray = [NSMutableArray arrayWithContentsOfFile:plistPath];
+        self.mockCountryLists = listArray;
+    }
+   
 }
 - (NSArray *)mockCountryItems:(NSInteger)nosOfCountry {
     
@@ -274,6 +279,7 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
 
 #pragma mark -  Update Next Button State
 - (void)updateNextButtonStateTestCasesForItems:(NSInteger)items testCaseType:(TestCaseType)testCaseType {
+   
     CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
     
     NSArray *mockSountryItems = [self mockCountryItems:items];
@@ -323,6 +329,142 @@ typedef NS_ENUM(NSUInteger, TestCaseType) {
     
 }
 
+#pragma mark -  Selected RowDict Test Cases
+
+
+- (void)selectedRowDictTestCasesForTappedIndexPath:(NSIndexPath *)indexPath
+                                expectedDictionary:(NSDictionary *)expectedDictionary
+                                      testCaseType:(TestCaseType)testCaseType
+{
+     CountryListViewPresenter * countryListViewPresenter = [[CountryListViewPresenter alloc]init];
+    
+   NSDictionary *resultDict =  [countryListViewPresenter selectedRowDictForIndexPath:indexPath fromCountries:self.mockCountryLists];
+ 
+    switch (testCaseType) {
+        case TestCaseTypeNilObject:
+        {
+            XCTAssertNil(resultDict);
+        }
+            break;
+        case TestCaseTypeEqualObject:
+        {
+            XCTAssertEqualObjects(resultDict, expectedDictionary);
+        }
+            break;
+            
+        case TestCaseTypeNotEqualObject:
+        {
+            XCTAssertNotEqualObjects(resultDict, expectedDictionary);
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+}
+
+- (void )testSelectedRowDictTestCasesNoIndexPathSelected {
+    
+    NSIndexPath *indexPath = nil;
+    
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    
+    [expectedMockDict setObject:@(0) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"India" forKey:KEY_COUNTRY_NAME];
+
+    
+    [self selectedRowDictTestCasesForTappedIndexPath:indexPath
+                                  expectedDictionary:expectedMockDict
+                                        testCaseType:TestCaseTypeNilObject];
+}
+
+- (void )testSelectedRowDictTestCasesOverFlowObject {
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:21 inSection:0];
+    
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    
+    [expectedMockDict setObject:@(indexPath.row) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"India" forKey:KEY_COUNTRY_NAME];
+    
+    
+    [self selectedRowDictTestCasesForTappedIndexPath:indexPath expectedDictionary:expectedMockDict testCaseType:TestCaseTypeNilObject];
+}
+- (void )testSelectedRowDictTestCasesEqualObject {
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    
+    [expectedMockDict setObject:@(indexPath.row) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"India" forKey:KEY_COUNTRY_NAME];
+    
+    
+    [self selectedRowDictTestCasesForTappedIndexPath:indexPath expectedDictionary:expectedMockDict testCaseType:TestCaseTypeEqualObject];
+}
+
+- (void )testSelectedRowDictTestCasesEqualObject_1 {
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    
+    [expectedMockDict setObject:@(indexPath.row) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"United Kingdom" forKey:KEY_COUNTRY_NAME];
+    
+    
+    [self selectedRowDictTestCasesForTappedIndexPath:indexPath expectedDictionary:expectedMockDict testCaseType:TestCaseTypeEqualObject];
+}
+- (void )testSelectedRowDictTestCasesEqualObject_2 {
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:19 inSection:0];
+    
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    
+    [expectedMockDict setObject:@(indexPath.row) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"Japan" forKey:KEY_COUNTRY_NAME];
+    
+    
+    [self selectedRowDictTestCasesForTappedIndexPath:indexPath expectedDictionary:expectedMockDict testCaseType:TestCaseTypeEqualObject];
+}
+
+- (void )testSelectedRowDictTestCasesNotEqualObject {
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    
+    [expectedMockDict setObject:@(1) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"India" forKey:KEY_COUNTRY_NAME];
+    
+    
+    [self selectedRowDictTestCasesForTappedIndexPath:indexPath
+                                  expectedDictionary:expectedMockDict
+                                        testCaseType:TestCaseTypeNotEqualObject];
+}
+
+- (void )testSelectedRowDictTestCasesNotEqualObject2 {
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    
+    NSMutableDictionary *expectedMockDict = [[NSMutableDictionary  alloc]init];
+    
+    [expectedMockDict setObject:@(0) forKey:KEY_COUNTRY_ID];
+    [expectedMockDict setObject:@"United Kingdom" forKey:KEY_COUNTRY_NAME];
+    
+    
+    [self selectedRowDictTestCasesForTappedIndexPath:indexPath
+                                  expectedDictionary:expectedMockDict
+                                        testCaseType:TestCaseTypeNotEqualObject];
+}
+
+
+
+
+//-------------------------
+//-------------------------
+//- (BOOL)isSelected:(NSIndexPath *)indexPath selectedDictionary:(NSDictionary *)dictCountry selectedCountries:(NSArray *)seletedCountries;
 //commit
 //- (void)updateCountryCountLabel:(NSArray *)selectedCountries;
 @end

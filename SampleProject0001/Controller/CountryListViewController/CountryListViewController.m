@@ -199,27 +199,9 @@
 
 - (NSDictionary *)selectedRowDictForIndexPath:(NSIndexPath *)indexPath {
     
-    if(indexPath.row >= self.countryListContents.count) return nil;
-    
-    NSDictionary *dictCountry = [self.countryListContents objectAtIndex:indexPath.row];
-    return dictCountry;
+  return  [_countryListViewPresenter selectedRowDictForIndexPath:indexPath fromCountries:self.countryListContents];
     
 }
-
-//- (BOOL)isSelected:(NSIndexPath *)indexPath {
-//
-//    BOOL isSelected = NO;
-//    NSDictionary *dictCountry = [self selectedRowDictForIndexPath:indexPath];
-//
-//    if(dictCountry && self.seletedCountries.count) {
-//
-//        isSelected = [self.seletedCountries containsObject:dictCountry];
-//
-//    }
-//
-//    return isSelected;
-//}
-
 
 
 /*

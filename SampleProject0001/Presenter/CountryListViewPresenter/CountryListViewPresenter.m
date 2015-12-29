@@ -162,6 +162,16 @@
     }
 }
 
+- (NSDictionary *)selectedRowDictForIndexPath:(NSIndexPath *)indexPath fromCountries:(NSArray *)countries{
+    
+    if( !countries.count || !countries || !indexPath || indexPath.row >= countries.count) return nil;
+    
+    NSDictionary *dictCountry = [countries objectAtIndex:indexPath.row];
+   
+    return dictCountry;
+    
+}
+
 
 #pragma mark - Selection Logic
 - (BOOL)isMinimumItemsSelected:(NSArray *)selectedArray {
