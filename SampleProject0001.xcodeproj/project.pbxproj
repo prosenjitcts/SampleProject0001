@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		7A5613D81C35097D0023C31E /* SelectedCountryListPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5613D71C35097D0023C31E /* SelectedCountryListPresenter.m */; };
+		7A5613DF1C35097D0023C31E /* NSArray+SortedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5613DE1C35097D0023C31E /* NSArray+SortedArray.m */; };
+		7A5613E01C35097D0023C31E /* NSArray+SortedArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A5613DE1C35097D0023C31E /* NSArray+SortedArray.m */; };
 		7A90C9D41C3121C10094A9E0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9D31C3121C10094A9E0 /* main.m */; };
 		7A90C9D71C3121C10094A9E0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9D61C3121C10094A9E0 /* AppDelegate.m */; };
 		7A90C9DA1C3121C10094A9E0 /* SampleProject0001.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7A90C9D81C3121C10094A9E0 /* SampleProject0001.xcdatamodeld */; };
@@ -43,6 +45,8 @@
 		7A5613D61C35097D0023C31E /* SelectedCountryListPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCountryListPresenter.h; sourceTree = "<group>"; };
 		7A5613D71C35097D0023C31E /* SelectedCountryListPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectedCountryListPresenter.m; sourceTree = "<group>"; };
 		7A5613D91C35097D0023C31E /* SelectedCountryListControllerCallBack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectedCountryListControllerCallBack.h; sourceTree = "<group>"; };
+		7A5613DD1C35097D0023C31E /* NSArray+SortedArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+SortedArray.h"; sourceTree = "<group>"; };
+		7A5613DE1C35097D0023C31E /* NSArray+SortedArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+SortedArray.m"; sourceTree = "<group>"; };
 		7A90C9CE1C3121C10094A9E0 /* SampleProject0001.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleProject0001.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A90C9D21C3121C10094A9E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A90C9D31C3121C10094A9E0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +103,30 @@
 			path = SelectedCountryListPresenter;
 			sourceTree = "<group>";
 		};
+		7A5613DA1C35097D0023C31E /* Artwork */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Artwork;
+			sourceTree = "<group>";
+		};
+		7A5613DB1C35097D0023C31E /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				7A5613DC1C35097D0023C31E /* Category */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		7A5613DC1C35097D0023C31E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				7A5613DD1C35097D0023C31E /* NSArray+SortedArray.h */,
+				7A5613DE1C35097D0023C31E /* NSArray+SortedArray.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 		7A90C9C51C3121C10094A9E0 = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +148,7 @@
 		7A90C9D01C3121C10094A9E0 /* SampleProject0001 */ = {
 			isa = PBXGroup;
 			children = (
+				7A5613DB1C35097D0023C31E /* Utility */,
 				7A90CA181C313BB10094A9E0 /* Resource */,
 				7A90CA261C31498B0094A9E0 /* Model */,
 				7A90CA271C31498B0094A9E0 /* View */,
@@ -216,6 +245,7 @@
 		7A90CA181C313BB10094A9E0 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				7A5613DA1C35097D0023C31E /* Artwork */,
 				7A90CA191C313BC00094A9E0 /* CountryList.plist */,
 				7A90CA281C3157460094A9E0 /* Constants.h */,
 			);
@@ -355,6 +385,7 @@
 				7A90CA211C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */,
 				7A90C9DA1C3121C10094A9E0 /* SampleProject0001.xcdatamodeld in Sources */,
 				7A90CA101C31385A0094A9E0 /* CountryListViewPresenter.m in Sources */,
+				7A5613DF1C35097D0023C31E /* NSArray+SortedArray.m in Sources */,
 				7A90CA0A1C3134C90094A9E0 /* CountryListViewController.m in Sources */,
 				7A90CA2C1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */,
 			);
@@ -365,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A90CA161C3139650094A9E0 /* CountryListViewImpl.m in Sources */,
+				7A5613E01C35097D0023C31E /* NSArray+SortedArray.m in Sources */,
 				7A90CA2D1C3187AC0094A9E0 /* SelectedCountryListController.m in Sources */,
 				7A90CA221C3141BA0094A9E0 /* MockCountryListViewController.m in Sources */,
 				7A90CA111C31385A0094A9E0 /* CountryListViewPresenter.m in Sources */,

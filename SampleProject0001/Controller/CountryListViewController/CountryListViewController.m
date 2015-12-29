@@ -69,7 +69,7 @@
     self.navigationItem.rightBarButtonItem.enabled = isEnabled;
 }
 
-#pragma mark Enent
+#pragma mark Next Enent
 
 - (void)clickedNext:(id)sender {
     
@@ -87,16 +87,13 @@
 - (void)setSeletedCountries:(NSMutableArray *)seletedCountries {
     
     _seletedCountries = seletedCountries;
-    
 }
-
 
 #pragma mark -  <CountryListViewControllerCallback>
 
 - (void)displayContent:(NSArray *)array {
-    
-    self.countryListContents = [NSArray arrayWithArray:array];
-    
+  
+    self.countryListContents = [array ascendingSortedCountryByName];
     [tableViewCountryList reloadData];
     
 }

@@ -24,7 +24,7 @@
 		<key>kCountryID</key>
 		<integer>3</integer>
 		<key>kCountryName</key>
-		<string>South Korea</string>
+		<string>North Korea</string>
 	</dict>
 	<dict>
 		<key>kCountryID</key>
@@ -54,7 +54,7 @@
 		<key>kCountryID</key>
 		<integer>8</integer>
 		<key>kCountryName</key>
-		<string>Indonesia</string>
+		<string>Scotland</string>
 	</dict>
 	<dict>
 		<key>kCountryID</key>
@@ -72,7 +72,7 @@
 		<key>kCountryID</key>
 		<integer>11</integer>
 		<key>kCountryName</key>
-		<string>China</string>
+		<string>Las Vegas</string>
 	</dict>
 	<dict>
 		<key>kCountryID</key>
@@ -96,7 +96,7 @@
 		<key>kCountryID</key>
 		<integer>15</integer>
 		<key>kCountryName</key>
-		<string>Brazil</string>
+		<string>Argentina</string>
 	</dict>
 	<dict>
 		<key>kCountryID</key>
